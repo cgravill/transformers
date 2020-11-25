@@ -153,6 +153,7 @@ class ModuleUtilsMixin:
             module.mem_rss_post_forward = 0
             module.mem_rss_pre_forward = 0
 
+    @torch.jit.unused
     @property
     def device(self) -> device:
         """
@@ -190,6 +191,7 @@ class ModuleUtilsMixin:
             first_tuple = next(gen)
             return first_tuple[1].dtype
 
+    @torch.jit.unused
     @property
     def dtype(self):
         return self.get_dtype()
@@ -376,6 +378,7 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin):
     base_model_prefix = ""
     authorized_missing_keys = None
 
+    @torch.jit.unused
     @property
     def dummy_inputs(self) -> Dict[str, torch.Tensor]:
         """
@@ -396,6 +399,7 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin):
         # Save config in model
         self.config = config
 
+    @torch.jit.unused
     @property
     def base_model(self) -> nn.Module:
         """
