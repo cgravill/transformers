@@ -269,6 +269,7 @@ if is_torch_available():
         BertForNextSentencePrediction,
         BertForPreTraining,
         BertForQuestionAnswering,
+        BertScriptableForQuestionAnswering,
         BertForSequenceClassification,
         BertForTokenClassification,
         BertLayer,
